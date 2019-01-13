@@ -1,8 +1,5 @@
 install.packages("RMySQL")
-<<<<<<< HEAD
 
-=======
->>>>>>> 220ba47cc71d775356fc0ae43200208360e93371
 library(DBI) # library(RMySQL) not required
 
 # Create a connection Object to MySQL database
@@ -226,7 +223,7 @@ dbGetQuery(con, 'SELECT amount - payments AS NET
            LIMIT 10')
 
 dbDisconnect(con)
-<<<<<<< HEAD
+
 
 # dplyr and MySQL Databases
 library(dplyr)
@@ -251,5 +248,3 @@ loan %>%
   summarise(n_status = n(), 
             avg_amount = mean(amount)) %>%
   arrange(avg_amount)
-=======
->>>>>>> 220ba47cc71d775356fc0ae43200208360e93371
