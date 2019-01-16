@@ -3,7 +3,6 @@
 # Entering strings
 "This is R"
 "This is "R"
-
 line <- "This is \"R\""
 
 # Display: 
@@ -12,11 +11,13 @@ line <- "This is \"R\""
 # long string
 writeLines("This is a really \nreally really \nlong string")
 
+
 # Escape sequence
 writeLines("hello\n\U1F30D")
 
 # Display: To have a \ you need \\
 writeLines("To have a \\ you need \\\\")
+
 
 line1 <- "This is R"
 line2 <- "This is 'R"
@@ -27,6 +28,7 @@ lines <- c(line1, line2, line3)
 
 # Print lines
 lines
+
 
 # Use writeLines() on lines to see the content of strings you've created
 writeLines(lines)
@@ -49,9 +51,11 @@ Toppings <- c("anchovies", "artichoke", "bacon", "breakfast bacon",
               "olives", "onions", "pepperoni", "pineapple", "sausage", "spinach",
               "sun-dried tomato","tomatoes")
 
+
 (my_toppings <- sample(Toppings, size = 3))
 
 (my_toppings_and <- paste(c("", "", "and "), my_toppings, sep = ""))
+
 
 # Collapse with comma and space
 (one_topping <- paste(my_toppings_and, collapse = ", "))
@@ -63,6 +67,7 @@ Toppings <- c("anchovies", "artichoke", "bacon", "breakfast bacon",
 writeLines(my_order)
 
 cat("I want to order a pizza with ", one_topping, ".", sep = "")
+
 
 # Combining numbers and strings with paste() function
 debt <- 4000
@@ -78,6 +83,7 @@ while(debt > 0){
   
   
 }
+
 
 # Base R functions for strings
 nchar("Count the number of characters")
@@ -187,7 +193,6 @@ lapply(word_lengths, mean)
 ?str_replace_na
 str_replace_na(my_toppings, 'we_replaced')
 
-
 library(babynames)
 library(dplyr)
 
@@ -208,6 +213,7 @@ mean(girl_length) - mean(boy_length)
 
 # str_sub
 ?str_sub
+
 str_sub(c("Michaele", "Sofia"), 1, 4)
 str_sub(c("Michaele", "Sofia"), -4, -1)
 
@@ -241,6 +247,49 @@ boy_names[number_as == 4]
 # str_replace()
 ?str_replace()
 
+ids <- c("ID#: 192", "ID#: 118", "ID#: 001")
+
+
+# Splitting Strings
+date_ranges <- c("23.01.2017 - 29.01.2017", 
+                 "30.01.2017 - 06.02.2017")
+# Split dates using " - "
+split_dates <- str_split(date_ranges, fixed(" - "))
+
+split_dates
+
+
+# Split dates with n and simplify specifed
+(split_dates_n <- str_split(date_ranges, fixed(" - "), 
+                            n = 2, simplify = TRUE))
+# Split start_dates into day, month and year pieces
+split_dates_n <- str_split(split_dates_n, fixed("."), simplify = TRUE)
+
+# Pull months
+split_dates_n[, 2]
+
+# str_split()
+# Define line1
+line1 <- "The table was a large one, but the three were all crowded together at one corner of it:"
+
+# Define line2
+line2 <- '"No room! No room!" they cried out when they saw Alice coming.' 
+
+# Define line3
+line3 <- "\"There's plenty of room!\" said Alice indignantly, and she sat down in a large arm-chair at one end of the table."
+lines <- c(line1, line2, line3)
+lines
+
+# Split lines into words
+(words <- str_split(lines, " "))
+
+# Number of words per line
+(word_lengths <- lapply(words, str_length))
+
+# Average word length per line
+lapply(word_lengths, mean)
+
+# str_replace()
 ids <- c("ID#: 192", "ID#: 118", "ID#: 001")
 
 # Replace "ID#: " with "" - empty string
