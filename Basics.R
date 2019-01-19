@@ -348,6 +348,7 @@ BMI['gender']
 BMI[, 'gender', drop = FALSE]
 
 BMI[, c('gender', 'weight')]
+BMI[c('gender', 'weight')]
 
 BMI[[1]]
 BMI[['gender']]
