@@ -350,11 +350,10 @@ library(dplyr)
 library()
 
 # Another way of loading the package
-
 require(dplyr)
+library(readr)
 
 ?require
-
 
 # Get all packages currently loaded in the R environment
 search()
