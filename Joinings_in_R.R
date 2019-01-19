@@ -66,6 +66,7 @@ dbGetQuery(con,'SELECT p.date, amount, duration
            WHERE district_id = 25
            ORDER BY date
            LIMIT 10')
+
 # Right join account and loan tables on account_id, selecting all columns that are ordered according account_id in descending order
 dbGetQuery(con,'SELECT *
            FROM account AS p
