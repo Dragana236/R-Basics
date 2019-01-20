@@ -29,6 +29,11 @@ a <= b
 a >= b
 a != b
 
+x <- c(1, 2, 3, 3, 5, 3)
+length(x)
+sum(x == 3)   # F, F, T, T, F, T
+mean(x == 3)  
+
 # Logical operators
 value <- c(65, 61, 60)
 (value > 59) & (value < 70)
