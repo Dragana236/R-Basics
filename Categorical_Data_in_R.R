@@ -1,7 +1,5 @@
-install.packages('openintro')
 library(openintro)
 library(dplyr)
-install.packages('gapminder')
 library(gapminder)
 library(ggplot2)
 library(forcats)
@@ -27,7 +25,6 @@ gapminder <- gapminder %>%
 # Convert characters columns to factors
 (gapminder <- gapminder %>% 
     mutate_if(is.character, as.factor))
-
 
 head(hsb2)
 
@@ -95,7 +92,7 @@ head(hsb2)
   unique()
 
 
-# forcats functions
+##### Forcats Functions #####
 (multiple_choice <- read_csv('multipleChoiceResponses.csv'))
 (multiple_choice <- multiple_choice %>% 
     mutate_if(is.character, as.factor))
@@ -103,7 +100,6 @@ head(hsb2)
 multiple_choice %>% 
   pull(CurrentJobTitleSelect) %>% 
   levels()
-
 
 multiple_choice <- multiple_choice %>% 
   mutate(grouped_titles = 
@@ -207,7 +203,6 @@ hsb2 %>%
   levels()
 
 # renaming factor levels
-# changing names of levels
 flying_etiquette <- read_csv('flying-etiquette.csv')
 
 (flying_etiquette <- flying_etiquette %>% 
@@ -243,7 +238,6 @@ flying_etiquette %>%
   theme(axis.text.x = element_text(angle = 90))
 
 
-
 flying_etiquette %>%
   mutate(`who should get to use the two arm rests` = fct_recode(
     `who should get to use the two arm rests`, 
@@ -275,9 +269,6 @@ multiple_choice %>%
   scale_y_continuous(labels = scales::percent)
 
 
-
-
-
 multiple_choice %>% 
   select(contains("LearningPlatformUsefulness")) %>% 
   gather(learning_platform, usefulness) %>% 
@@ -302,4 +293,3 @@ multiple_choice %>%
             vjust = 0.4) +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank())
-
