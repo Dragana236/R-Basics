@@ -413,6 +413,8 @@ BMI <- 	data.frame(
   
 )
 
+is.na(BMI)
+
 # Find rows with no missing values
 complete.cases(BMI)
 
