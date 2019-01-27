@@ -401,7 +401,6 @@ names(BMI_summary)[1] <- "BMI"
 # Missing Values
 x <- c(1, 3, 5, NA, 5)
 is.na(x)
-x[!is.na(x)]
 
 # Data frame with missing value
 BMI <- 	data.frame(
@@ -414,6 +413,17 @@ BMI <- 	data.frame(
   
 )
 
+# Find rows with no missing values
+complete.cases(BMI)
+
+x[!is.na(x)]
+
 subset(BMI, !is.na(weight))
+
+# Subset data, keeping only complete cases
+BMI[complete.cases(BMI),]
+
+# Automatically removing rows with missing values
+na.omit(BMI)
 
 sum(is.na(x))
